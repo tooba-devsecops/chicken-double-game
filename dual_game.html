@@ -1,0 +1,50 @@
+<script>
+const left = document.getElementById('frame-left');
+const right = document.getElementById('frame-right');
+const bLeft = document.getElementById('bones-left');
+const bRight = document.getElementById('bones-right');
+const applyBtn = document.getElementById('apply');
+const syncBtn = document.getElementById('sync');
+
+// Affichage des scores
+const footer = document.querySelector('footer');
+const scoreBoard = document.createElement('div');
+scoreBoard.style.display = 'flex';
+scoreBoard.style.justifyContent = 'space-around';
+scoreBoard.style.padding = '10px';
+scoreBoard.style.color = '#a1f15b';
+scoreBoard.innerHTML = `
+  <div><b>Résultat Jeu A :</b> <span id="scoreA">–</span></div>
+  <div><b>Résultat Jeu B :</b> <span id="scoreB">–</span></div>
+`;
+footer.insertAdjacentElement('beforebegin', scoreBoard);
+
+function updateIFrameSrc(frame, bones) {
+  frame.src = './solution.html?bones=' + encodeURIComponent(bones);
+}
+
+applyBtn.addEventListener('click', () => {
+  const bl = Math.max(1, Math.min(24, parseInt(bLeft.value) || 1));
+  const br = Math.max(1, Math.min(24, parseInt(bRight.value) || 1));
+  updateIFrameSrc(left, bl);
+  updateIFrameSrc(right, br);
+});
+
+syncBtn.addEventListener('click', () => {
+  left.contentWindow.location.reload();
+  right.contentWindow.location.reload();
+});
+
+// --- Réception des résultats en temps réel ---
+window.addEventListener("message", (event) => {
+  if (event.data && event.data.type === "gameResult") {
+    const { bones, chickens, gain, solde, status } = event.data;
+    const msg = `🐔 ${chickens} poulets | 🦴 ${bones} os | 💰 ${gain} | ${status.toUpperCase()} | Solde: ${solde}`;
+    if (event.source === left.contentWindow) {
+      document.getElementById("scoreA").textContent = msg;
+    } else if (event.source === right.contentWindow) {
+      document.getElementById("scoreB").textContent = msg;
+    }
+  }
+});
+</script>
